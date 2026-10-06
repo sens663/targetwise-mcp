@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "targetwise": {
+      "type": "http",
+      "url": "https://targetwise.ai/api/mcp",
+      "headers": {
+        "Authorization": "Bearer ${TARGETWISE_API_KEY}"
+      }
+    }
+  }
+}
