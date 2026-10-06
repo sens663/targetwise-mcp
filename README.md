@@ -32,6 +32,16 @@ Alternatively, use the included `.mcp.json` project configuration. It reads `TAR
 
 In Cursor's MCP settings, configure a remote server with the endpoint and Authorization header. The included `cursor.mcp.json` uses Cursor's environment interpolation syntax.
 
+### Gemini CLI
+
+Install the included extension:
+
+```sh
+gemini extensions install https://github.com/sens663/targetwise-mcp
+```
+
+When prompted, enter your TargetWise workspace API key. The extension declares a sensitive setting, `TARGETWISE_API_KEY`, and uses it in the Bearer header. Gemini CLI stores sensitive extension settings in its system keychain. Calls still consume your TargetWise workspace credits.
+
 Clients that require an OAuth authorization flow cannot connect directly to this bearer-key gateway. Use a client that supports custom authentication headers. Do not interpret directory publication as approval by an AI platform.
 
 ## Eleven tools
@@ -51,6 +61,12 @@ Clients that require an OAuth authorization flow cannot connect directly to this
 | `targetwise_reverse_email_lookup` | Resolve one business email into available person and employer context |
 
 Discovery definitions are published at https://targetwise.ai/.well-known/mcp/server-card.json. They are generated from the same tool definitions used by the running server.
+
+## Registry and discovery
+
+The official MCP Registry record is active at https://registry.modelcontextprotocol.io/v0.1/servers/ai.targetwise%2Ftargetwise/versions/latest. Directory review and client-gallery approval are separate from registry publication.
+
+[![AllMCPs listing](https://allmcps.com/api/badge/targetwise?style=shield)](https://allmcps.com/mcp/targetwise)
 
 ## Where it fits
 
