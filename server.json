@@ -1,0 +1,32 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.targetwise/targetwise",
+  "title": "TargetWise — B2B Prospecting & Enrichment",
+  "description": "Find companies and B2B contacts, enrich profiles, and look up work emails and business phones.",
+  "version": "1.0.0",
+  "websiteUrl": "https://targetwise.ai/mcp/overview",
+  "repository": {
+    "url": "https://github.com/sens663/targetwise-mcp",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://targetwise.ai/targetwise-logo.svg",
+      "mimeType": "image/svg+xml"
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://targetwise.ai/api/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Enter Bearer followed by your TargetWise workspace API key from Dashboard → Developers.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
