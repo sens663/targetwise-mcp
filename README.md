@@ -1,6 +1,6 @@
 # TargetWise MCP
 
-![TargetWise](public/targetwise-connector-logo.png)
+![TargetWise](https://raw.githubusercontent.com/sens663/targetwise-mcp/main/public/targetwise-connector-logo.png)
 
 TargetWise is a B2B data enrichment platform that helps sales, revenue operations and AI teams turn incomplete company and contact records into usable business data. It combines waterfall contact enrichment with company intelligence and delivers results through its web platform, API and MCP connectors.
 
