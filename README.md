@@ -1,5 +1,9 @@
 # TargetWise MCP
 
+![TargetWise](public/targetwise-connector-logo.png)
+
+TargetWise is a B2B data enrichment platform that helps sales, revenue operations and AI teams turn incomplete company and contact records into usable business data. It combines waterfall contact enrichment with company intelligence and delivers results through its web platform, API and MCP connectors.
+
 **Company and contact data for AI agents.** Connect to TargetWise over Streamable HTTP to find companies and employees, enrich selected records, and retrieve available work emails and business phones.
 
 - **MCP endpoint:** https://targetwise.ai/api/mcp
@@ -8,7 +12,7 @@
 - **Official registry name:** `ai.targetwise/targetwise`
 - **Authentication:** a TargetWise workspace API key in the `Authorization: Bearer ...` header
 
-This repository contains the official connection guide, client configurations and directory manifest for the hosted TargetWise service. The hosted server implementation and database are not distributed in this repository.
+This repository contains the official connection guide, client configurations, directory manifest and MIT-licensed Claude Desktop connector for the hosted TargetWise service. The hosted server implementation and database are not distributed in this repository.
 
 ## Start with one useful lookup
 
@@ -18,6 +22,14 @@ This repository contains the official connection guide, client configurations an
 4. Use bounded search, inspect the candidates, then enrich the selected company or professional.
 
 Customer-key clients must use `/api/mcp`. The hosting platform reserves `/mcp`; it is not the customer-key endpoint.
+
+### Claude Desktop and Claude web
+
+Download the [TargetWise Claude Desktop extension](https://targetwise.ai/downloads/targetwise-claude.mcpb) and follow the [Claude setup guide](https://targetwise.ai/developers/claude). The package includes the TargetWise logo and company description. Enter a dedicated workspace API key in its sensitive API key setting.
+
+The dependency-free Node.js bridge and manifest are in [`connectors/claude`](connectors/claude). It forwards requests only to the fixed TargetWise HTTPS endpoint, refuses redirects and does not read local files or run shell commands. Run `node --test tests/claude-connector.test.mjs` to check the bridge. Run `python3 scripts/package-claude-connector.py` from this repository's root to build the bundle.
+
+Claude web accounts with custom request-header support can use the hosted MCP endpoint directly. The setup guide includes the required Authorization header. Directory submission and Anthropic approval are separate from downloading this custom extension.
 
 ### Claude Code
 
@@ -96,7 +108,7 @@ The tools retrieve data, but calls can consume credits; consequently their annot
 
 ## Service and licensing
 
-The MIT license covers the connection examples and documentation in this repository. Access to the hosted service and returned data is governed by TargetWise's plans and terms: https://targetwise.ai/legal/terms. The service and data are not licensed under MIT.
+The MIT license covers the Claude Desktop bridge, connection examples and documentation in this repository. Access to the hosted service and returned data is governed by TargetWise's plans and terms: https://targetwise.ai/legal/terms. The service and data are not licensed under MIT.
 
 Privacy: https://targetwise.ai/legal/privacy  
 Security: https://targetwise.ai/trust/security  

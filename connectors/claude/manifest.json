@@ -1,0 +1,64 @@
+{
+  "manifest_version": "0.3",
+  "name": "targetwise",
+  "display_name": "TargetWise",
+  "version": "1.0.1",
+  "description": "Company research, contact enrichment, work emails and business phone numbers in Claude.",
+  "long_description": "TargetWise is a B2B data enrichment platform that helps sales, revenue operations and AI teams turn incomplete company and contact records into usable business data. It combines waterfall contact enrichment with company intelligence and delivers results through its web platform, API and MCP connectors.\n\nConnect Claude to TargetWise's eleven company and contact tools using a dedicated workspace API key. Calls use your existing workspace permissions, balances and rate limits. Returned fields depend on record availability and plan access. This extension forwards requests only to https://targetwise.ai/api/mcp; it does not read local files or run shell commands. Data lookups can consume credits. Revoke the key in TargetWise Dashboard \u2192 Developers to disconnect.",
+  "author": {
+    "name": "TargetWise",
+    "url": "https://github.com/sens663"
+  },
+  "homepage": "https://targetwise.ai",
+  "documentation": "https://targetwise.ai/developers/claude",
+  "support": "https://targetwise.ai/company/contact",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.mjs"
+      ],
+      "env": {
+        "TARGETWISE_API_KEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "tools_generated": true,
+  "keywords": [
+    "company-data",
+    "contact-enrichment",
+    "sales",
+    "research",
+    "targetwise"
+  ],
+  "privacy_policies": [
+    "https://targetwise.ai/legal/privacy"
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "TargetWise API key",
+      "description": "Create a dedicated Claude key in targetwise.ai \u2192 Dashboard \u2192 Developers. Paste the key only, without the word Bearer.",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sens663/targetwise-mcp.git"
+  }
+}
