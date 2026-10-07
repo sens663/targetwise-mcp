@@ -1,0 +1,35 @@
+{
+  "name": "targetwise",
+  "displayName": "TargetWise",
+  "version": "1.0.1",
+  "description": "Research companies, enrich contacts, and find available work emails and business phone numbers with TargetWise.",
+  "author": {
+    "name": "TargetWise",
+    "url": "https://targetwise.ai"
+  },
+  "homepage": "https://targetwise.ai/developers/claude",
+  "repository": "https://github.com/sens663/targetwise-mcp",
+  "license": "MIT",
+  "keywords": ["targetwise", "company-data", "contact-enrichment", "sales", "research"],
+  "icon": "./icon.png",
+  "documentationUrl": "https://targetwise.ai/developers/claude",
+  "supportUrl": "https://targetwise.ai/company/contact",
+  "privacyPolicyUrl": "https://targetwise.ai/legal/privacy",
+  "termsOfServiceUrl": "https://targetwise.ai/legal/terms",
+  "mcpServers": {
+    "targetwise": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/server/index.mjs"],
+      "env": {"TARGETWISE_API_KEY": "${user_config.api_key}"}
+    }
+  },
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "TargetWise API key",
+      "description": "Create a dedicated Claude key in TargetWise Dashboard → Developers. Enter only the key, without Bearer. Data lookups can consume workspace credits.",
+      "sensitive": true,
+      "required": true
+    }
+  }
+}

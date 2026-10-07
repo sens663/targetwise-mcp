@@ -99,6 +99,7 @@ test("bundle config stores credentials as sensitive settings and Code config onl
   const manifest=JSON.parse(await readFile(new URL('../connectors/claude/manifest.json',import.meta.url)));
   assert.equal(manifest.name,"targetwise");assert.equal(manifest.user_config.api_key.sensitive,true);assert.equal(manifest.user_config.api_key.required,true);
   assert.equal(manifest.server.mcp_config.env.TARGETWISE_API_KEY,"${user_config.api_key}");assert.ok(!JSON.stringify(manifest.server.mcp_config.args).includes("api_key"));
-  const config=JSON.parse(await readFile(new URL('../public/downloads/targetwise-claude-code.json',import.meta.url)));
+  const config=JSON.parse(await readFile(new URL('../.mcp.json',import.meta.url)));
   assert.equal(config.mcpServers.targetwise.type,"http");assert.equal(config.mcpServers.targetwise.headers.Authorization,"Bearer ${TARGETWISE_API_KEY}");
 });
+

@@ -12,7 +12,7 @@ TargetWise is a B2B data enrichment platform that helps sales, revenue operation
 - **Official registry name:** `ai.targetwise/targetwise`
 - **Authentication:** a TargetWise workspace API key in the `Authorization: Bearer ...` header
 
-This repository contains the official connection guide, client configurations, directory manifest and MIT-licensed Claude Desktop connector for the hosted TargetWise service. The hosted server implementation and database are not distributed in this repository.
+This repository contains the official connection guide, client configurations, directory manifest and MIT-licensed Claude plugin and Desktop connector for the hosted TargetWise service. The hosted server implementation and database are not distributed in this repository.
 
 ## Start with one useful lookup
 
@@ -22,6 +22,19 @@ This repository contains the official connection guide, client configurations, d
 4. Use bounded search, inspect the candidates, then enrich the selected company or professional.
 
 Customer-key clients must use `/api/mcp`. The hosting platform reserves `/mcp`; it is not the customer-key endpoint.
+
+### Claude plugin
+
+Install the plugin from TargetWise's GitHub marketplace in Claude Code:
+
+```text
+/plugin marketplace add sens663/targetwise-mcp
+/plugin install targetwise@targetwise
+```
+
+Enter a dedicated TargetWise workspace API key when prompted. The plugin marks the key as sensitive and uses Claude's credential storage. Node.js 20 or newer is required. Local MCP tools work in Claude Code and compatible local Cowork environments; they do not run in Claude web chat. See the [plugin README](connectors/claude/README.md) for tools, data handling and validation.
+
+The plugin includes the TargetWise logo and company description. This is TargetWise's own marketplace, not an approved listing in Anthropic's directory. Official directory publication requires a separate submission and review through [Anthropic's developer portal](https://claude.ai/directory/manage).
 
 ### Claude Desktop and Claude web
 
@@ -108,8 +121,9 @@ The tools retrieve data, but calls can consume credits; consequently their annot
 
 ## Service and licensing
 
-The MIT license covers the Claude Desktop bridge, connection examples and documentation in this repository. Access to the hosted service and returned data is governed by TargetWise's plans and terms: https://targetwise.ai/legal/terms. The service and data are not licensed under MIT.
+The MIT license covers the Claude plugin and Desktop bridge, connection examples and documentation in this repository. Access to the hosted service and returned data is governed by TargetWise's plans and terms: https://targetwise.ai/legal/terms. The service and data are not licensed under MIT.
 
 Privacy: https://targetwise.ai/legal/privacy  
 Security: https://targetwise.ai/trust/security  
 Support: https://targetwise.ai/company/contact
+

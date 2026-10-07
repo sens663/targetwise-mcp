@@ -1,0 +1,12 @@
+{
+  "name": "targetwise",
+  "description": "TargetWise company research and contact enrichment for Claude.",
+  "owner": {"name": "TargetWise"},
+  "plugins": [
+    {
+      "name": "targetwise",
+      "source": "./connectors/claude",
+      "description": "Research companies, enrich contacts, and find available work emails and business phone numbers with TargetWise."
+    }
+  ]
+}
